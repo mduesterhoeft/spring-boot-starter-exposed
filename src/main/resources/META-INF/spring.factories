@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.md.exposed.ExposedAutoConfiguration,\
+com.md.exposed.SpringTransactionExposedAutoConfiguration,\
+com.md.exposed.DatabaseInitializerAutoConfiguration
