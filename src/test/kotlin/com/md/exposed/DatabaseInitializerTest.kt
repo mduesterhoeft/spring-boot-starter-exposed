@@ -4,7 +4,6 @@ import org.amshove.kluent.`should be`
 import org.amshove.kluent.`should not be`
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.selectAll
-import org.jetbrains.exposed.sql.transactions.transaction
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -21,19 +20,9 @@ class DatabaseInitializerTest {
 	@Autowired(required = false)
 	var databaseInitializer: SpringTransactionDatabaseInitializer? = null
 
-	@Autowired
-	lateinit var exposedTables: ExposedTables
-
 	@Test @Transactional fun `should autoconfigure database`() {
 		databaseInitializer `should not be` null
 		Things.selectAll().count() `should be` 0
-	}
-
-	fun `should initialize database with simple initializer`() {
-		transaction {
-			SimpleTransactionDatabaseInitializer(exposedTables).run(null)
-			Things.selectAll().count() `should be` 0
-		}
 	}
 }
 
