@@ -14,12 +14,12 @@ import javax.sql.DataSource
 class ExposedAutoConfiguration {
 
     @Bean
+    @ConditionalOnBean(DataSource::class)
     fun database(dataSource: DataSource): Database {
         return Database.connect(dataSource)
     }
 
     @Bean
-
     @ConditionalOnMissingBean(DatabaseInitializer::class)
     @ConditionalOnBean(ExposedTables::class)
     @ConditionalOnProperty("spring.exposed.generate-ddl", havingValue = "true", matchIfMissing = false)
