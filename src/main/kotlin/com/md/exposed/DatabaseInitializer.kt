@@ -6,6 +6,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import org.slf4j.LoggerFactory
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
+import org.springframework.transaction.annotation.Transactional
 
 
 data class ExposedTables(val tables: List<Table>)
@@ -24,6 +25,7 @@ open class SimpleTransactionDatabaseInitializer(private val exposedTables: Expos
     }
 }
 
+@Transactional
 open class SpringTransactionDatabaseInitializer(private val exposedTables: ExposedTables): DatabaseInitializer {
     private val log = LoggerFactory.getLogger(javaClass)
 
