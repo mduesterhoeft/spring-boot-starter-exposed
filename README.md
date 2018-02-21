@@ -1,4 +1,5 @@
 [![](https://jitpack.io/v/mduesterhoeft/spring-boot-starter-exposed.svg)](https://jitpack.io/#mduesterhoeft/spring-boot-starter-exposed)
+[![Build Status](https://travis-ci.org/mduesterhoeft/spring-boot-starter-exposed.svg?branch=master)](https://travis-ci.org/mduesterhoeft/spring-boot-starter-exposed)
 [![codecov](https://codecov.io/gh/mduesterhoeft/spring-boot-starter-exposed/branch/master/graph/badge.svg)](https://codecov.io/gh/mduesterhoeft/spring-boot-starter-exposed)
 
 # Spring Boot Starter for Exposed
