@@ -7,6 +7,9 @@ cache:
   - "$HOME/.gradle"
 install: true
 script: "./gradlew clean build jacocoTestReport coveralls"
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 env:
   global:
   - CI_NAME=travis-ci
+  - secure: rmnkG6GzdpdW+RFN8u8neOEtid/AI0uOntfCW4jXa1oRo1j0q9t2pgzTddSueL/RwWtikJTeUuqTwatMoU9XXeTUjsh35Acd/r0dytdOMaJhpvHqC4E0+veocqUsiUReB7kIqeemPfX5oIvNhp17HPkSqPjh5U7o3/dUnFAHRuDPovUbvzTrG7dFod64xsTEzw+OvjqS5qtTyk7gTxmFX0BaP7jZqAwFiXbvm3QEZMHi/6+Xdlt5S2rZBEkSEtdv/1/DWVOSgeri5AKZSLL4P1cUr2GgHpgT3GzCKvE23PI4l52K3h+j6DTnuiwXp9GBzSU8aVVx4YkQNmp4ezSBQLdBCzAoNE1H7awD8qRfS4wj/blyc+XJNptF6c9g2gM00EM6a+6qLE7dHY3mCnnmiIdYstn3Q4OUhnwl2fd9DOFYJx16ETgCrP4/j5mkXBMuAHFd1NC+IIm2rdPbChEQYm+WYhMIcnY/Z8GkPJbFxx0n4CxYA18xO+T1n45WWMS6A+h9JBQH+Zm/FXHQf27ruOysmqsyulKXxvZK7dyhmPG4xFVzpo6vWnELzyMCI44u7tOEKQKV5V1LQgvOmo62x4lBSqo+QKInNLnhgz/8NyjaGHPiFlzDGWGNFCoiKCoYteYDxQSzcfcqtoky6CFOoHJfYvkz9KsiV3y6yCYLBHQ=
