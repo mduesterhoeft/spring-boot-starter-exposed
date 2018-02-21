@@ -48,14 +48,14 @@ repositories {
 ext['exposed.version'] = '0.9.1'
 
 dependencies {
-	compile("org.springframework.boot:spring-boot-starter:${project.ext.springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter:${project.ext.springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-jdbc:${project.ext.springBootVersion}")
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	compile("org.jetbrains.kotlin:kotlin-reflect")
-	compile("org.jetbrains.exposed:exposed:${project.ext['exposed.version']}")
-	compileOnly("org.jetbrains.exposed:spring-transaction:${project.ext['exposed.version']}")
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compile("org.jetbrains.kotlin:kotlin-reflect")
+    compile("org.jetbrains.exposed:exposed:${project.ext['exposed.version']}")
+    compileOnly("org.jetbrains.exposed:spring-transaction:${project.ext['exposed.version']}")
 
-	testCompile("org.springframework.boot:spring-boot-starter-test:${project.ext.springBootVersion}")
+    testCompile("org.springframework.boot:spring-boot-starter-test:${project.ext.springBootVersion}")
     testCompile('org.amshove.kluent:kluent:1.34')
     testCompile("org.jetbrains.exposed:spring-transaction:${project.ext['exposed.version']}")
     testRuntime('com.h2database:h2:1.4.196')
