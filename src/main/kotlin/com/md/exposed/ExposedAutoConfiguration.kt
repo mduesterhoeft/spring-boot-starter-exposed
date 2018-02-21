@@ -1,6 +1,7 @@
 package com.md.exposed
 
 import org.jetbrains.exposed.sql.Database
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
@@ -18,11 +19,12 @@ class ExposedAutoConfiguration {
     }
 
     @Bean
+
     @ConditionalOnMissingBean(DatabaseInitializer::class)
+    @ConditionalOnBean(ExposedTables::class)
     @ConditionalOnProperty("spring.exposed.generate-ddl", havingValue = "true", matchIfMissing = false)
     @ConditionalOnMissingClass("org.jetbrains.exposed.spring.SpringTransactionManager")
     fun databaseInitializer(exposedTables: ExposedTables): DatabaseInitializer {
-
         return SimpleTransactionDatabaseInitializer(exposedTables)
     }
 }
