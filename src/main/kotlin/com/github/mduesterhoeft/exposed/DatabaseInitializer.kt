@@ -13,10 +13,10 @@ import org.springframework.transaction.annotation.Transactional
 data class ExposedTables(val tables: List<Table>)
 
 interface DatabaseInitializer: ApplicationRunner, Ordered {
-    override fun getOrder(): Int = databaseInitializerOrder
+    override fun getOrder(): Int = DATABASE_INITIALIZER_ORDER
 
     companion object {
-        val databaseInitializerOrder = 0
+        const val DATABASE_INITIALIZER_ORDER = 0
     }
 }
 
