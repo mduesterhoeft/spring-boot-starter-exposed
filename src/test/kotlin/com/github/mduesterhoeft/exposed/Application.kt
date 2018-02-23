@@ -1,4 +1,4 @@
-package com.md.exposed
+package com.github.mduesterhoeft.exposed
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class Application
 
 fun main(args: Array<String>) {
-    runApplication<Application>(*args)
+    runApplication<com.github.mduesterhoeft.exposed.Application>(*args)
 }

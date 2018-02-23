@@ -1,4 +1,4 @@
-package com.md.exposed
+package com.github.mduesterhoeft.exposed
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 

@@ -1,4 +1,4 @@
-package com.md.exposed
+package com.github.mduesterhoeft.exposed
 
 import org.amshove.kluent.`should not be`
 import org.jetbrains.exposed.spring.SpringTransactionManager

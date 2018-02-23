@@ -1,3 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.md.exposed.ExposedAutoConfiguration,\
-com.md.exposed.SpringTransactionExposedAutoConfiguration
+com.github.mduesterhoeft.exposed.ExposedAutoConfiguration,\
+com.github.mduesterhoeft.exposed.SpringTransactionExposedAutoConfiguration
