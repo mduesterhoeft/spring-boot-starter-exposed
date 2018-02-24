@@ -45,7 +45,7 @@ repositories {
 	maven { url  "https://dl.bintray.com/kotlin/exposed" }
 }
 
-ext['exposed.version'] = '0.9.1'
+ext['exposed.version'] = '0.10.1'
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter:${project.ext.springBootVersion}")
