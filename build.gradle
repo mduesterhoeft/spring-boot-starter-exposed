@@ -1,7 +1,7 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.2.21'
-		springBootVersion = '2.0.0.RC2'
+		kotlinVersion = '1.2.31'
+		springBootVersion = '2.0.1.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -45,7 +45,7 @@ repositories {
 	maven { url  "https://dl.bintray.com/kotlin/exposed" }
 }
 
-ext['exposed.version'] = '0.10.1'
+ext['exposed.version'] = '0.10.2'
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter:${project.ext.springBootVersion}")
@@ -57,8 +57,8 @@ dependencies {
 
     testCompile("org.springframework.boot:spring-boot-starter-test:${project.ext.springBootVersion}")
     testCompile("org.jetbrains.exposed:spring-transaction:${project.ext['exposed.version']}")
-    testCompile('org.amshove.kluent:kluent:1.34')
-    testRuntime('com.h2database:h2:1.4.196')
+    testCompile('org.amshove.kluent:kluent:1.35')
+    testRuntime('com.h2database:h2:1.4.197')
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

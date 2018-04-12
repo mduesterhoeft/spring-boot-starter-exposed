@@ -1,6 +1,6 @@
 package com.github.mduesterhoeft.exposed
 
-import org.amshove.kluent.`should not be`
+import org.amshove.kluent.`should not be null`
 import org.jetbrains.exposed.sql.Database
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,7 +18,7 @@ class ExposedAutoConfigurationTest {
 
 	@Test
 	fun `should autoconfigure database`() {
-		database `should not be` null
+		database.`should not be null`()
 	}
 
 }
