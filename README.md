@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compile('com.github.mduesterhoeft:spring-boot-starter-exposed:0.1.6')
+    compile('com.github.mduesterhoeft:spring-boot-starter-exposed:0.1.7')
 }
 ```
 
