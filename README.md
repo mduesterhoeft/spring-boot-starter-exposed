@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compile('com.github.mduesterhoeft:spring-boot-starter-exposed:0.1.7')
+    compile('com.github.mduesterhoeft:spring-boot-starter-exposed:0.2.0')
 }
 ```
 
@@ -32,8 +32,15 @@ If you have the exposed module `org.jetbrains.exposed:spring-transaction` on the
 
 The starter can be used to initialize the database schema.
 
-To achieve this, a bean of type `com.github.mduesterhoeft.exposed.ExposedTables` is needed on the application context. This bean needs to contain all tables that should be created. The schema generation needs to be enabled like this:
+The schema generation needs to be enabled via application.properties:
 
 ```
 spring.exposed.generate-ddl=true
 ```
+
+Packages can be excluded from schema generation by supplying a comma seperated list in application.properties:
+
+```
+spring.exposed.excluded-packages=com.package.exclude,com.package.exclude2
+```
+
