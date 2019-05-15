@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class Application
 
 fun main(args: Array<String>) {
-    runApplication<com.github.mduesterhoeft.exposed.Application>(*args)
+    runApplication<Application>(*args)
 }
