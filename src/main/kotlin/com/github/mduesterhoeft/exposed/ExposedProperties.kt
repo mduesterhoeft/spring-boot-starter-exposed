@@ -4,4 +4,4 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 
 
 @ConfigurationProperties(prefix = "spring.exposed")
-data class ExposedProperties(var generateDdl: Boolean)
+data class ExposedProperties(val generateDdl: Boolean, val excludedPackages: List<String>)
