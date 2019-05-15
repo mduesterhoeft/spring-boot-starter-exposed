@@ -1,18 +1,18 @@
 buildscript {
-	ext {
-		kotlinVersion = '1.3.11'
-		springBootVersion = '2.1.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-		maven { url "https://repo.spring.io/snapshot" }
-		maven { url "https://repo.spring.io/milestone" }
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
-		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
-	}
+    ext {
+        kotlinVersion = '1.3.31'
+        springBootVersion = '2.1.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+    }
 }
 
 apply plugin: 'maven'
@@ -25,49 +25,49 @@ group = 'com.md'
 sourceCompatibility = 1.8
 
 compileKotlin {
-	kotlinOptions {
-		freeCompilerArgs = ["-Xjsr305=strict"]
-		jvmTarget = "1.8"
-	}
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
 }
 compileTestKotlin {
-	kotlinOptions {
-		freeCompilerArgs = ["-Xjsr305=strict"]
-		jvmTarget = "1.8"
-	}
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
     jcenter()
-	maven { url "https://repo.spring.io/snapshot" }
-	maven { url "https://repo.spring.io/milestone" }
-	maven { url  "https://dl.bintray.com/kotlin/exposed" }
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "https://dl.bintray.com/kotlin/exposed" }
 }
 
-ext['exposed.version'] = '0.11.2'
+ext['exposed.version'] = '0.13.7'
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter:${project.ext.springBootVersion}")
-    compile("org.springframework.boot:spring-boot-starter-jdbc:${project.ext.springBootVersion}")
-    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    compile("org.jetbrains.kotlin:kotlin-reflect")
-    compile("org.jetbrains.exposed:exposed:${project.ext['exposed.version']}")
-    compileOnly("org.jetbrains.exposed:spring-transaction:${project.ext['exposed.version']}")
+    implementation "org.springframework.boot:spring-boot-starter:${project.ext.springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-jdbc:${project.ext.springBootVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
+    implementation "org.jetbrains.exposed:exposed:${project.ext['exposed.version']}"
+    compileOnly "org.jetbrains.exposed:spring-transaction:${project.ext['exposed.version']}"
 
-    testCompile("org.springframework.boot:spring-boot-starter-test:${project.ext.springBootVersion}")
-    testCompile("org.jetbrains.exposed:spring-transaction:${project.ext['exposed.version']}")
-    testCompile('org.amshove.kluent:kluent:1.35')
-    testRuntime('com.h2database:h2:1.4.197')
+    testCompile "org.springframework.boot:spring-boot-starter-test:${project.ext.springBootVersion}"
+    testCompile "org.jetbrains.exposed:spring-transaction:${project.ext['exposed.version']}"
+    testCompile 'org.amshove.kluent:kluent:1.49'
+    testRuntime 'com.h2database:h2:1.4.199'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = 'sources'
-	from sourceSets.main.allSource
+    archiveClassifier = 'sources'
+    from sourceSets.main.allSource
 }
 
 artifacts {
-	archives sourcesJar
+    archives sourcesJar
 }
 
 jacocoTestReport {
